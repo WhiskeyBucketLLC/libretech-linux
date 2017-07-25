@@ -90,3 +90,7 @@
 &wifi32k {
 	status = "disabled";
 };
+
+&usb0 {
+       status = "okay";
+};
