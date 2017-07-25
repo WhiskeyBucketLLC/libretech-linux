@@ -251,6 +251,22 @@
 			};
 		};
 
+		spi_pins: spi {
+			mux {
+				groups = "spi_miso",
+					"spi_mosi",
+					"spi_sclk";
+				function = "spi";
+			};
+		};
+
+		spi_ss0_pins: spi-ss0 {
+			mux {
+				groups = "spi_ss0";
+				function = "spi";
+			};
+		};
+
 		sdcard_pins: sdcard {
 			mux {
 				groups = "sdcard_d0",
@@ -591,6 +607,13 @@
 		 <&clkc CLKID_CTS_AMCLK>,
 		 <&clkc CLKID_CTS_I958>;
 	clock-names = "fast", "iface", "mclk_i958", "mclk_i2s", "mclk";
+};
+
+&spicc {
+	clocks = <&clkc CLKID_SPICC>;
+	clock-names = "core";
+	resets = <&reset RESET_PERIPHS_SPICC>;
+	num-cs = <1>;
 };
 
 &spifc {
